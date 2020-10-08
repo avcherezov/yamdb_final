@@ -2,4 +2,4 @@
 yamdb_final
 
 
-https://github.com/avcherezov/yamdb_final/workflows/yamdb_final/badge.svg
+![example workflow name](https://github.com/avcherezov/yamdb_final/workflows/yamdb_final/badge.svg)
