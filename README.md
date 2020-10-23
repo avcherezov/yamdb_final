@@ -1,5 +1,46 @@
-# yamdb_final
-yamdb_final
 
+# REST API для сервиса YaMDb — базы отзывов о фильмах, книгах и музыке
+## Краткое описание:
+Проект YaMDb собирает отзывы (Review) пользователей на произведения (Title). Произведения делятся на категории: «Книги», «Фильмы», «Музыка». Читатели оставляют к произведениям текстовые отзывы (Review) и выставляют произведению рейтинг (оценку в диапазоне от одного до десяти). Из множества оценок автоматически высчитывается средняя оценка произведения.
+Ресурсы API YaMDb:
+- Ресурс AUTH: аутентификация.
+- Ресурс USERS: пользователи.
+- Ресурс TITLES: произведения, к которым пишут отзывы (определённый фильм, книга или песенка).
+- Ресурс CATEGORIES: категории (типы) произведений («Фильмы», «Книги», «Музыка»).
+- Ресурс GENRES: жанры произведений. Одно произведение может быть привязано к нескольким жанрам.
+- Ресурс REVIEWS: отзывы на произведения. Отзыв привязан к определённому произведению.
+- Ресурс COMMENTS: комментарии к отзывам. Комментарий привязан к определённому отзыву.
+## Подготовка рабочей среды
+Перейдите в свою рабочую директорию и выполните следующие команды:
+```
+git clone https://github.com/avcherezov/infra_sp2.git
+cd infra_sp2
+```
+Создайте и активируйте виртуальное окружение:
+```
+source -m venv venv
+source venv/Scripts/activate
+```
+Установите необходимые зависимости:
+```
+pip install -r requirements.txt
+```
+Запустите Docker-compose:
+```
+docker-compose build
+docker-compose up
+```
+Выполните миграции:
+```
+docker exec -it <CONTAINER ID> python manage.py makemigrations api
+docker exec -it <CONTAINER ID> python manage.py migrate
+```
+Создайте суперпользователя:
+```
+docker exec -it <CONTAINER ID> python manage.py creatsuperuser
+```
+Команда для заполнения базы данных начальными значениями:
+```
+docker exec -it <CONTAINER ID> python manage.py loaddata fixtures.json
 
-![yamdb_final](https://github.com/avcherezov/yamdb_final/workflows/yamdb_final/badge.svg)
+```
