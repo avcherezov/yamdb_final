@@ -80,7 +80,7 @@ class ReviewsViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         title_id = self.kwargs.get('title_id')
-        if Reviews.objects.filter(author=self.request.user, 
+        if Reviews.objects.filter(author=self.request.user,
                                 title_id=title_id).exists():
             raise ParseError
         title = get_object_or_404(Title, pk=title_id)

@@ -27,4 +27,3 @@ class CategoryFilter(filters.FilterSet):
     class Meta:
         model = Category
         fields = ['name']
-        

@@ -128,4 +128,3 @@ class TitleSerializer(serializers.ModelSerializer):
             'description'
         )
         model = Title
-        
